@@ -1,0 +1,10 @@
+{
+  "name": "monitor-de-tribunais",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Monitor de status dos sistemas judiciais (PJe, eproc, Projudi, eSAJ) usados pela Starian, com checagem automática direta nos tribunais via Netlify Functions.",
+  "dependencies": {
+    "@netlify/blobs": "^8.2.0"
+  }
+}

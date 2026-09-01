@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Atualizações — PJe / eproc / Projudi / eSAJ</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --gridline: #e1e0d9;
+    --border: rgba(11,11,11,0.10);
+    --good: #0ca30c;
+    --warning: #fab219;
+    --serious: #ec835a;
+    --critical: #d03b3b;
+    --series-blue: #2a78d6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px; }
+  .brand-header {
+    background: linear-gradient(135deg, #0c0d10 0%, #0d1216 45%, #0c2230 100%);
+    padding: 28px 24px 0;
+  }
+  .brand-header-inner { max-width: 1180px; margin: 0 auto; padding-bottom: 22px; }
+  .brand-header .logo { display: block; height: 22px; margin-bottom: 18px; }
+  .brand-header h1 { font-size: 21px; margin: 0 0 6px; color: #ffffff; font-weight: 600; }
+  .brand-header .subtitle { color: #c3c2b7; font-size: 13.5px; margin: 0; max-width: 760px; line-height: 1.5; }
+  .brand-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, #450908 0%, #b90103 14%, #ca113d 30%, #7a2fb8 40%, #0953d8 50%, #3987e5 58%, #64e0de 68%, #58d090 80%, #dff4ed 96%);
+  }
+  header.page-meta { margin: 20px 0 4px; }
+  .meta { color: var(--text-muted); font-size: 12.5px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0 28px; }
+  .stat-tile {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--series-blue);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .stat-tile:nth-child(2) { border-top-color: var(--warning); }
+  .stat-tile:nth-child(3) { border-top-color: var(--good); }
+  .stat-tile:nth-child(4) { border-top-color: var(--text-muted); }
+  .stat-tile .n { font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat-tile .l { font-size: 12.5px; color: var(--text-secondary); margin-top: 2px; }
+  .filters {
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    margin-bottom: 14px; padding: 12px 14px;
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+  }
+  .filters label { font-size: 12.5px; color: var(--text-secondary); margin-right: 4px; }
+  .filters select, .filters input {
+    font-size: 13.5px; padding: 6px 8px; border-radius: 6px;
+    border: 1px solid var(--gridline); background: #fff; color: var(--text-primary);
+  }
+  .filters input[type="search"] { min-width: 200px; }
+  .count-note { font-size: 12.5px; color: var(--text-muted); margin-left: auto; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  thead th {
+    text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em;
+    color: var(--text-muted); font-weight: 600; padding: 10px 12px; border-bottom: 1px solid var(--gridline);
+    background: #f5f4f1; position: sticky; top: 0;
+  }
+  tbody td { padding: 9px 12px; font-size: 13.5px; border-bottom: 1px solid var(--gridline); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #f6f6f4; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .badge.agendado { background: #fff4de; color: #7a5300; }
+  .badge.agendado .dot { background: var(--warning); }
+  .badge.ocorrido { background: #eef7ee; color: #2f5c2f; }
+  .badge.ocorrido .dot { background: var(--good); }
+  .badge.monitorando { background: #eaf1fb; color: #1d4f8f; }
+  .badge.monitorando .dot { background: var(--series-blue); }
+  .badge.sem-evento { background: #f0efec; color: var(--text-muted); }
+  .badge.sem-evento .dot { background: var(--text-muted); }
+  td.evento { color: var(--text-secondary); }
+  td.data { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .op-section { margin-bottom: 24px; }
+  .op-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .op-heading h2 { font-size: 15px; margin: 0; }
+  .op-note { font-size: 12px; color: var(--text-muted); max-width: 620px; }
+  .op-summary { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; font-size: 12.5px; color: var(--text-secondary); }
+  .op-summary span { display: inline-flex; align-items: center; gap: 5px; }
+  .op-summary .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .op-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px;
+    max-height: 380px; overflow-y: auto; padding: 4px 4px 4px 0;
+  }
+  .op-card {
+    background: var(--surface-1); border: 1px solid var(--border); border-left: 3px solid var(--text-muted);
+    border-radius: 8px; padding: 8px 10px; font-size: 12px;
+  }
+  .op-card.online { border-left-color: var(--good); }
+  .op-card.instavel { border-left-color: var(--warning); }
+  .op-card.indisponivel { border-left-color: var(--critical); }
+  .op-card.nao-verificavel { border-left-color: var(--text-muted); }
+  .op-card.sem-url { border-left-color: var(--gridline); opacity: 0.6; }
+  .op-card.carregando { border-left-color: var(--gridline); opacity: 0.5; }
+  .op-card .op-t { font-weight: 700; font-size: 13px; }
+  .op-card .op-s { color: var(--text-muted); font-size: 11px; margin-bottom: 4px; }
+  .op-card .op-status-line { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-secondary); }
+  .op-card .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .op-card.online .dot { background: var(--good); }
+  .op-card.instavel .dot { background: var(--warning); }
+  .op-card.indisponivel .dot { background: var(--critical); }
+  .op-card.nao-verificavel .dot { background: var(--text-muted); }
+  .op-card.sem-url .dot { background: var(--gridline); }
+  .op-card.carregando .dot { background: var(--gridline); }
+  .live-banner {
+    font-size: 12.5px; color: var(--text-secondary); background: #eef1f5;
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px;
+  }
+  .live-banner.error { background: #fdeeee; color: #8a2c2c; }
+  .op-card .op-ms { color: var(--text-muted); font-size: 10.5px; margin-top: 2px; }
+  td.op-status-cell { white-space: nowrap; }
+  td a { color: var(--series-blue); text-decoration: none; font-size: 12.5px; }
+  td a:hover { text-decoration: underline; }
+  .system-chip { font-size: 12px; color: var(--text-secondary); }
+  footer { margin-top: 20px; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  footer a { color: var(--series-blue); }
+  .hidden-row { display: none; }
+  .empty-state { text-align: center; padding: 40px; color: var(--text-muted); font-size: 13.5px; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+
+<div class="brand-header">
+  <div class="brand-header-inner">
+    <svg class="logo" viewBox="0 0 168 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Starian">
+      <path d="M68.6589 20.6564C68.3859 20.6564 68.1367 20.4902 68.0206 20.2356L66.297 16.4445C61.2658 16.6708 58.4601 19.0226 57.2314 20.4159C57.0982 20.568 56.9071 20.6564 56.7091 20.6564H54.5281C54.4052 20.6564 54.296 20.5928 54.2311 20.4867C54.1663 20.3806 54.1594 20.2497 54.2106 20.133L60.4637 6.39391C60.8289 5.59467 61.6106 5.09603 62.5048 5.09603C63.3991 5.09603 64.1841 5.59467 64.546 6.39391L70.799 20.1295C70.8502 20.2427 70.8434 20.377 70.7785 20.4831C70.7137 20.5892 70.6011 20.6529 70.4816 20.6529H68.6657L68.6589 20.6564ZM59.0472 15.6948C60.8494 14.7152 62.8871 14.1069 65.1262 13.8841L62.498 8.11262L59.0472 15.6948Z" fill="white"/>
+      <path d="M160.062 20.6706C159.721 20.6706 159.404 20.5326 159.161 20.2851L148.075 8.78101V19.2206C148.075 20.0128 147.454 20.6564 146.689 20.6564H145.884C145.689 20.6564 145.532 20.4937 145.532 20.2922V6.77584C145.532 5.98721 146.153 5.34358 146.915 5.34004H147.823C148.164 5.34004 148.481 5.47443 148.72 5.72198L159.806 17.2261V6.77584C159.806 5.98368 160.428 5.34004 161.192 5.34004H161.998C162.192 5.34004 162.349 5.50272 162.349 5.7043V19.2312C162.349 20.0234 161.728 20.667 160.964 20.667H160.056L160.062 20.6706Z" fill="white"/>
+      <path d="M38.3461 20.6564C38.1515 20.6564 37.9945 20.4937 37.9945 20.2922V7.97824H31.209C31.0144 7.97824 30.8574 7.81556 30.8574 7.61399V6.77938C30.8574 5.98722 31.4786 5.34358 32.2432 5.34358H47.3059C47.5004 5.34358 47.6574 5.50626 47.6574 5.70784V6.54244C47.6574 7.33461 47.0362 7.97824 46.2717 7.97824H40.5374V19.2242C40.5374 20.0163 39.9162 20.66 39.1516 20.66H38.3461V20.6564Z" fill="white"/>
+      <path d="M109.287 5.70784V19.2206C109.287 20.0128 108.666 20.6564 107.901 20.6564H107.096C106.901 20.6564 106.744 20.4937 106.744 20.2922V6.77938C106.744 5.98722 107.365 5.34358 108.13 5.34358H108.936C109.13 5.34358 109.287 5.50626 109.287 5.70784Z" fill="white"/>
+      <path d="M94.238 20.6564C93.9274 20.6564 93.6202 20.5468 93.3744 20.3417L86.193 14.411C86.1179 14.3474 86.0223 14.3156 85.9267 14.3156H83.0084C82.8992 14.3156 82.807 14.4075 82.807 14.5242V19.2206C82.807 20.0128 82.1858 20.6564 81.4213 20.6564H80.6157C80.4212 20.6564 80.2642 20.4937 80.2642 20.2922V6.65207C80.2642 5.92709 80.8342 5.33297 81.5373 5.33297H93.2823V5.35065C95.5521 5.48504 97.3611 7.44423 97.3611 9.83134C97.3611 12.2184 95.419 14.3191 93.0297 14.3191H90.7326C90.5995 14.3191 90.5551 14.4252 90.5414 14.4606C90.5312 14.4924 90.5039 14.6055 90.6063 14.694L97.0437 20.0092C97.1597 20.1083 97.2075 20.2709 97.1563 20.4159C97.1051 20.5645 96.9754 20.66 96.8218 20.66H94.2346L94.238 20.6564ZM83.0084 7.96763C82.8992 7.96763 82.807 8.05958 82.807 8.17628V11.4723C82.807 11.589 82.8958 11.6809 83.0084 11.6809H93.0297C94.0161 11.6809 94.8182 10.8498 94.8182 9.8278C94.8182 8.80577 94.0161 7.9747 93.0297 7.9747H92.7771V7.96409H83.0084V7.96763Z" fill="white"/>
+      <path d="M133.59 20.6564C133.317 20.6564 133.067 20.4902 132.951 20.2356L131.228 16.4445C126.196 16.6708 123.391 19.0226 122.162 20.4159C122.029 20.568 121.838 20.6564 121.64 20.6564H119.459C119.336 20.6564 119.227 20.5928 119.162 20.4867C119.097 20.3806 119.09 20.2497 119.141 20.133L125.394 6.39744C125.76 5.5982 126.541 5.09956 127.436 5.09956C128.33 5.09956 129.115 5.5982 129.477 6.39744L135.73 20.133C135.781 20.2462 135.774 20.377 135.709 20.4831C135.644 20.5892 135.532 20.6529 135.412 20.6529H133.596L133.59 20.6564ZM123.978 15.6948C125.78 14.7152 127.818 14.1069 130.057 13.8841L127.429 8.11262L123.978 15.6948Z" fill="white"/>
+      <path d="M5.9953 20.6564C5.80074 20.6564 5.64373 20.4937 5.64373 20.2922V19.4576C5.64373 18.6654 6.26494 18.0218 7.02951 18.0218H18.3888C19.4913 18.0218 20.1773 17.0598 20.1773 16.1687C20.1773 15.0228 19.2114 14.3156 18.3171 14.3156H9.74987C7.3606 14.3156 5.41846 12.3033 5.41846 9.8278C5.41846 7.14363 7.71899 5.34004 9.86933 5.34004H22.1639C22.3584 5.34004 22.5154 5.50272 22.5154 5.7043V6.5389C22.5154 7.33106 21.8942 7.9747 21.1296 7.9747H9.74987C8.64739 7.9747 7.96133 8.93661 7.96133 9.8278C7.96133 10.9736 8.92728 11.6809 9.82155 11.6809H18.3888C20.7781 11.6809 22.7202 13.6931 22.7202 16.1687C22.7202 18.9412 20.4094 20.6564 18.2693 20.6564H5.9953Z" fill="white"/>
+    </svg>
+    <h1>Monitor de Atualizações — PJe / eproc / Projudi / eSAJ</h1>
+    <p class="subtitle">Tribunais atendidos pela Starian — filtra e acompanha anúncios de atualização, manutenção ou indisponibilidade que podem afetar integrações (ADV, ViaJusta, Hub Processo, Projuris Acordos).</p>
+  </div>
+</div>
+<div class="brand-stripe"></div>
+
+<div class="wrap">
+  <header class="page-meta">
+    <p class="meta">Anúncios de manutenção/atualização: curadoria manual, sem fonte única oficial. Status operacional (seção abaixo): checagem automática, ao vivo, direto no tribunal.</p>
+  </header>
+
+  <div class="live-banner" id="live-banner">Carregando checagem em tempo real dos tribunais…</div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="filters">
+    <label for="f-sistema">Sistema</label>
+    <select id="f-sistema"></select>
+    <label for="f-status">Situação</label>
+    <select id="f-status"></select>
+    <input type="search" id="f-busca" placeholder="Buscar tribunal (ex: TRT2, TJSP)">
+    <span class="count-note" id="count-note"></span>
+  </div>
+
+  <div class="op-section">
+    <div class="op-heading">
+      <h2>Status operacional agora (checagem automática direta no tribunal)</h2>
+      <span class="meta" id="op-checked-at"></span>
+    </div>
+    <p class="op-note">Checagem automática de verdade: uma função roda de hora em hora no servidor e faz uma requisição direta à página de acesso de cada sistema (não é consulta processual), sem depender de dado manual. "Online" = respondeu rápido; "Instável" = respondeu lento (acima de 6s) ou com um erro pontual do próprio servidor, ainda sem confirmar se é queda persistente; "Indisponível" = erro 5xx do próprio servidor por duas checagens seguidas ou mais; "Não verificável" NÃO significa que o tribunal está fora do ar — na maioria das vezes é bloqueio de bot/rede (WAF, CDN, geolocalização) contra a origem que faz a checagem, comum em sites .jus.br.</p>
+    <div class="op-summary" id="op-summary"></div>
+    <div class="op-grid" id="op-grid"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tribunal</th>
+        <th>Sistema</th>
+        <th>Instância(s)</th>
+        <th>Situação</th>
+        <th>Evento</th>
+        <th>Data</th>
+        <th>Status agora</th>
+        <th>Fonte</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty-state hidden-row" id="empty-state">Nenhum tribunal encontrado com esses filtros.</div>
+
+  <div class="op-section">
+    <div class="op-heading">
+      <h2>Histórico de incidentes</h2>
+    </div>
+    <p class="op-note">Registro acumulado de transições reais de status (Online ⇄ Instável ⇄ Indisponível) detectadas pela checagem automática direta no tribunal. Não inclui bloqueios de rede/WAF ("não verificável") — só entra aqui o que tem evidência de instabilidade ou indisponibilidade de verdade. A checagem roda de hora em hora, então uma mudança pode ter começado antes do horário registrado.</p>
+    <table id="incidents-table">
+      <thead>
+        <tr><th>Quando</th><th>Tribunal</th><th>Sistema</th><th>Evento</th></tr>
+      </thead>
+      <tbody id="incidents-tbody"></tbody>
+    </table>
+    <div class="empty-state hidden-row" id="incidents-empty">Nenhum incidente registrado ainda.</div>
+  </div>
+
+  <footer>
+    Cobertura: tribunais e sistemas informados pela Starian (PJe, PJe 1.x, eproc, Projudi, eSAJ, TJRJLocal). Não existe uma fonte única e centralizada de anúncios de atualização do CNJ ou dos tribunais — este painel é alimentado por buscas e leitura direta dos registros oficiais de cada tribunal, e pode ter lacunas ou atraso em relação ao anúncio oficial. "Agendado" indica data futura confirmada; "Ocorrido" indica evento identificado com data já passada (inclui indisponibilidades não planejadas, além de atualizações); "Monitorando" indica que o tribunal mantém um canal oficial de registro de indisponibilidade sem evento datado disponível no momento da coleta (algumas páginas bloqueiam acesso automatizado, ex: TJES, TRT4, TRT12 retornaram erro 403); "Sem evento" indica que nenhum anúncio foi localizado até agora.
+    <br><br>
+    Referência complementar para checagem manual em tempo real (não é raspada automaticamente por restrição de robots.txt): <a href="https://status.pdpj.jus.br/status/pdpj" target="_blank" rel="noopener">status.pdpj.jus.br/status/pdpj</a> — painel de status da Plataforma Digital do Poder Judiciário (CNJ).
+  </footer>
+</div>
+</div>
+
+<script>
+// status: 'agendado' | 'ocorrido' | 'monitorando' | 'sem-evento'
+// (t, s, inst, url) = alvo verificado ao vivo pela função check-status.mjs.
+// (status, evento, data, fonte) = curadoria manual de anúncios/manutenção — não é dado ao vivo.
+const rows = [
+  {t:"JFAL", s:"PJe 1.x", inst:"1º Grau", url:"https://pje.jfal.jus.br/pje/login.seam"},
+  {t:"JFCE", s:"PJe 1.x", inst:"1º Grau", url:"https://pje.jfce.jus.br/pje/login.seam"},
+  {t:"JFES", s:"eproc", inst:"1º Grau", url:"https://eproc.jfes.jus.br/eproc/"},
+  {t:"JFPB", s:"PJe 1.x", inst:"1º Grau", url:"https://pje.jfpb.jus.br/pje/login.seam"},
+  {t:"JFPE", s:"PJe 1.x", inst:"1º Grau", url:"https://pje.jfpe.jus.br/pje/login.seam"},
+  {t:"JFPR", s:"eproc", inst:"1º Grau", url:"https://eproc.jfpr.jus.br/eprocV2/"},
+  {t:"JFRJ", s:"eproc", inst:"1º Grau", url:"https://eproc.jfrj.jus.br/eproc/"},
+  {t:"JFRN", s:"PJe 1.x", inst:"1º Grau", url:"https://pje.jfrn.jus.br/pje/login.seam"},
+  {t:"JFRS", s:"eproc", inst:"1º Grau", url:"https://eproc.jfrs.jus.br/eprocV2/"},
+  {t:"JFSC", s:"eproc", inst:"1º Grau", url:"https://eproc.jfsc.jus.br/eprocV2/"},
+  {t:"JFSE", s:"PJe 1.x", inst:"1º Grau", url:"https://pje.jfse.jus.br/pje/login.seam"},
+  {t:"TJAC", s:"eSAJ", inst:"1º/2º Grau", url:"https://esaj.tjac.jus.br/sajcas/login"},
+  {t:"TJAL", s:"eSAJ", inst:"1º/2º Grau", url:"https://www2.tjal.jus.br/sajcas/login"},
+  {t:"TJAM", s:"eSAJ", inst:"1º/2º Grau", url:"https://consultasaj.tjam.jus.br/sajcas/login"},
+  {t:"TJAM", s:"Projudi", inst:"1º/2º Grau", url:"https://projudi.tjam.jus.br/projudi/"},
+  {t:"TJAP", s:"PJe", inst:"1º Grau", url:"https://pje.tjap.jus.br/1g/login.seam"},
+  {t:"TJBA", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjba.jus.br/pje/login.seam"},
+  {t:"TJBA", s:"Projudi", inst:"1º/2º Grau", status:"monitorando", evento:"Nova versão atualiza o sistema Projudi", data:"—", fonte:"https://www.tjba.jus.br/portal/n-o-v-a-v-e-r-s-a-o-a-t-u-a-l-i-z-a-s-i-s-t-e-m-a-p-r-o-j-u-d-i/", url:"https://projudi.tjba.jus.br/projudi/"},
+  {t:"TJCE", s:"eSAJ", inst:"1º/2º Grau", url:"https://esaj.tjce.jus.br/sajcas/login"},
+  {t:"TJCE", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Manutenção programada do PJe para implantação dos fluxos criminais", data:"30–31/05/2026", fonte:"https://www.tjce.jus.br/noticias/pje-estara-indisponivel-neste-fim-de-semana-para-manutencao-programada/", url:"https://pje.tjce.jus.br/pje1grau/"},
+  {t:"TJDF", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjdft.jus.br/pje/login.seam"},
+  {t:"TJES", s:"PJe", inst:"1º/2º Grau", status:"monitorando", evento:"Registro oficial de indisponibilidade do sistema (não é consulta processual)", data:"—", fonte:"https://www.tjes.jus.br/pje/consulta-indisponibilidade/", url:"https://pje.tjes.jus.br/pje/login.seam"},
+  {t:"TJGO", s:"Projudi", inst:"1º/2º Grau", url:"https://projudi.tjgo.jus.br/"},
+  {t:"TJMA", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjma.jus.br/pje/login.seam"},
+  {t:"TJMG", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjmg.jus.br/pje/login.seam"},
+  {t:"TJMG", s:"eproc", inst:"1º/2º Grau", url:"https://eproc1g.tjmg.jus.br/eproc/"},
+  {t:"TJMS", s:"eSAJ", inst:"1º/2º Grau", url:"https://esaj.tjms.jus.br/sajcas/login"},
+  {t:"TJMT", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjmt.jus.br/pje/login.seam"},
+  {t:"TJPA", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjpa.jus.br/pje/login.seam"},
+  {t:"TJPB", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjpb.jus.br/pje/login.seam"},
+  {t:"TJPE", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Manutenção programada no ambiente tecnológico do PJe", data:"22/05 21h–23/05 09h/2026", fonte:"https://portal.tjpe.jus.br/-/pje-passar%C3%A1-por-manuten%C3%A7%C3%A3o-programa-neste-fim-de-semana", url:"https://pje.cloud.tjpe.jus.br/1g/login.seam"},
+  {t:"TJPI", s:"PJe", inst:"1º/2º Grau", url:"https://pje.tjpi.jus.br/1g/login.seam"},
+  {t:"TJPR", s:"Projudi", inst:"1º/2º Grau", status:"ocorrido", evento:"Atualização da infraestrutura tecnológica do sistema (05h–08h)", data:"16/08/2026", fonte:"https://www.tjpr.jus.br/noticias/-/asset_publisher/9jZB/content/id/109474589", url:"https://projudi.tjpr.jus.br/projudi/"},
+  {t:"TJRJ", s:"PJe", inst:"1º Grau", url:"https://tjrj.pje.jus.br/1g/login.seam"},
+  {t:"TJRJ", s:"TJRJLocal", inst:"1º/2º Grau", url:null},
+  {t:"TJRN", s:"PJe", inst:"1º/2º Grau", url:"https://pje1g.tjrn.jus.br/pje/login.seam"},
+  {t:"TJRO", s:"PJe", inst:"1º/2º Grau", url:"https://pjepg.tjro.jus.br/pje/login.seam"},
+  {t:"TJRS", s:"eproc", inst:"1º/2º Grau", url:"https://www.tjrs.jus.br/novo/eproc/acesso-ao-sistema/"},
+  {t:"TJSC", s:"eproc", inst:"1º/2º Grau", status:"monitorando", evento:"Manutenção no sistema eproc", data:"—", fonte:"https://www.tjsc.jus.br/web/processo-eletronico-eproc/-/manutencao-no-sistema-eproc", url:"https://eproc1g.tjsc.jus.br/eproc/"},
+  {t:"TJSP", s:"eSAJ", inst:"1º/2º Grau", status:"agendado", evento:"Calendário oficial de manutenção 2026 (fins de semana): 07–08/03 (ocorrido), 16–17/05 (ocorrido), 08–09/08 (ocorrido), 17–18/10 (próximo)", data:"17–18/10/2026", fonte:"https://www.tjsp.jus.br/Download/CanaisComunicacao/Material/Manutencao-programada-2026.pdf", url:"https://esaj.tjsp.jus.br/sajcas/login"},
+  {t:"TJSP", s:"eproc", inst:"1º/2º Grau", url:"https://eproc1g.tjsp.jus.br/eproc"},
+  {t:"TJTO", s:"eproc", inst:"1º/2º Grau", status:"ocorrido", evento:"Parada técnica para atualização de versão (remarcada de 27/07)", data:"03/08/2026", fonte:"https://www.tjto.jus.br/comunicacao/noticias/parada-tecnica-do-sistema-eproc-prevista-para-27-de-julho-muda-para-3-de-agosto", url:"https://www.tjto.jus.br/eproc"},
+  {t:"TRF1", s:"PJe", inst:"1º/2º Grau", url:"https://pje1g.trf1.jus.br/pje/login.seam"},
+  {t:"TRF2", s:"eproc", inst:"1º/2º Grau", url:"https://eproc.trf2.jus.br/eproc/"},
+  {t:"TRF3", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Interrupção total em 16–18/02/2026 (atualização, com JFSP/JFMS); além disso, indisponibilidades semanais curtas registradas (últ. 14/08, geralmente terças 09h–10h)", data:"14/08/2026 (mais recente)", fonte:"https://www.trf3.jus.br/seti/indisponibilidade-dos-sistemas-judiciais-eletronicos", url:"https://pje1g.trf3.jus.br/pje/login.seam"},
+  {t:"TRF4", s:"eproc", inst:"1º/2º Grau", url:"https://eproc.trf4.jus.br/"},
+  {t:"TRF5", s:"PJe", inst:"1º/2º Grau", url:"https://pjett.trf5.jus.br/pje/login.seam"},
+  {t:"TRF5", s:"PJe1.x", inst:"1º Grau", url:"https://pje.trf5.jus.br/pje/login.seam"},
+  {t:"TRF6", s:"PJe", inst:"1º/2º Grau", url:"https://pje1g.trf6.jus.br/pje/login.seam"},
+  {t:"TRF6", s:"eproc", inst:"1º/2º Grau", status:"monitorando", evento:"Implantação da versão nacional 9.21 do eproc", data:"—", fonte:"https://portal.trf6.jus.br/implantacao-da-versao-nacional-9-21-do-sistema-eproc/", url:"https://eproc1g.trf6.jus.br/eproc/"},
+  {t:"TRT1", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt1.jus.br/primeirograu/login.seam"},
+  {t:"TRT2", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Manutenção preventiva — PJe fora do ar", data:"15/08/2026 12h–20h", fonte:"https://ww2.trt2.jus.br/noticias/noticias/noticia/pje-fica-indisponivel-neste-sabado-15-8", url:"https://pje.trt2.jus.br/primeirograu/login.seam"},
+  {t:"TRT3", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt3.jus.br/primeirograu/login.seam"},
+  {t:"TRT4", s:"PJe", inst:"1º/2º Grau", status:"monitorando", evento:"Registro oficial de indisponibilidade do sistema (não é consulta processual)", data:"—", fonte:"https://www.trt4.jus.br/portais/trt4/pje-indisponibilidade", url:"https://pje.trt4.jus.br/primeirograu/login.seam"},
+  {t:"TRT5", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt5.jus.br/primeirograu/login.seam"},
+  {t:"TRT6", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt6.jus.br/primeirograu/login.seam"},
+  {t:"TRT7", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt7.jus.br/primeirograu/login.seam"},
+  {t:"TRT8", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt8.jus.br/primeirograu/login.seam"},
+  {t:"TRT9", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Manutenção programada do PJe para correção de erros da versão mais recente", data:"25–26/07/2026", fonte:"https://www.oabpr.org.br/pje-ficara-indisponivel-neste-fim-de-semana-para-manutencao/", url:"https://pje.trt9.jus.br/primeirograu/login.seam"},
+  {t:"TRT10", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt10.jus.br/primeirograu/login.seam"},
+  {t:"TRT11", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Atualização do sistema para a versão 2.19.3", data:"20–21/06/2026", fonte:"https://portal.trt11.jus.br/index.php/comunicacao/11449-pje-ficara-indisponivel-de-20-a-21-de-junho-para-atualizacao-do-sistema", url:"https://pje.trt11.jus.br/primeirograu/login.seam"},
+  {t:"TRT12", s:"PJe", inst:"1º/2º Grau", status:"monitorando", evento:"Registro oficial de indisponibilidade do sistema (não é consulta processual)", data:"—", fonte:"https://portal.trt12.jus.br/pje/uso_indisponibilidade", url:"https://pje.trt12.jus.br/primeirograu/login.seam"},
+  {t:"TRT13", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt13.jus.br/primeirograu/login.seam"},
+  {t:"TRT14", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt14.jus.br/primeirograu/login.seam"},
+  {t:"TRT15", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt15.jus.br/primeirograu/login.seam"},
+  {t:"TRT16", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Atualização de infraestrutura do PJe", data:"01/08/2026", fonte:"https://www.trt16.jus.br/noticias/setic-realizara-atualizacao-do-sistema-pje-no-dia-1o-de-agosto", url:"https://pje.trt16.jus.br/primeirograu/login.seam"},
+  {t:"TRT17", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt17.jus.br/primeirograu/login.seam"},
+  {t:"TRT18", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt18.jus.br/primeirograu/login.seam"},
+  {t:"TRT19", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt19.jus.br/primeirograu/login.seam"},
+  {t:"TRT20", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt20.jus.br/primeirograu/login.seam"},
+  {t:"TRT21", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt21.jus.br/primeirograu/login.seam"},
+  {t:"TRT22", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt22.jus.br/primeirograu/login.seam"},
+  {t:"TRT23", s:"PJe", inst:"1º/2º Grau", url:"https://pje.trt23.jus.br/primeirograu/login.seam"},
+  {t:"TRT24", s:"PJe", inst:"1º/2º Grau", status:"ocorrido", evento:"Indisponibilidade para atualização de infraestrutura", data:"01–02/08/2026", fonte:"https://www.trt24.jus.br/web/guest/noticias/-/asset_publisher/ND6zpys7a3hM/content/id/12595922", url:"https://pje.trt24.jus.br/primeirograu/login.seam"},
+  {t:"TST", s:"PJe", inst:"1º/2º/Superior", status:"ocorrido", evento:"Pausa para entrada em produção da versão 2.21.0 do PJe", data:"07–10/08/2026", fonte:"https://www.oab-ba.org.br/noticia/tst-pje-ficara-indisponivel-no-proximo-fim-de-semana", url:"https://pje.tst.jus.br/tst/login.seam"},
+].map(r => ({
+  status: r.status || "sem-evento",
+  evento: r.evento || "Nenhum anúncio identificado até agora",
+  data: r.data || "—",
+  fonte: r.fonte || null,
+  opStatus: r.url ? "carregando" : "sem-url",
+  opCode: null,
+  opMs: null,
+  opCheckedAt: null,
+  ...r,
+}));
+
+// Histórico de transições reais (Online / Instável / Indisponível), vindo da
+// função serverless. Começa vazio e é preenchido por loadLiveStatus() abaixo.
+let incidents = [];
+
+
+const STATUS_LABEL = {
+  agendado: "Agendado",
+  ocorrido: "Ocorrido",
+  monitorando: "Monitorando",
+  "sem-evento": "Sem evento",
+};
+
+const OP_LABEL = {
+  online: "Online",
+  instavel: "Instável",
+  "nao-verificavel": "Não verificável",
+  indisponivel: "Indisponível",
+  "sem-url": "Sem URL confirmada",
+  carregando: "Carregando…",
+};
+
+function uniqueSorted(arr) { return [...new Set(arr)].sort(); }
+
+function populateSelect(id, values, allLabel) {
+  const el = document.getElementById(id);
+  el.innerHTML = "";
+  const optAll = document.createElement("option");
+  optAll.value = ""; optAll.textContent = allLabel;
+  el.appendChild(optAll);
+  values.forEach(v => {
+    const opt = document.createElement("option");
+    opt.value = v;
+    opt.textContent = STATUS_LABEL[v] || v;
+    el.appendChild(opt);
+  });
+}
+
+function render() {
+  const sistema = document.getElementById("f-sistema").value;
+  const status = document.getElementById("f-status").value;
+  const busca = document.getElementById("f-busca").value.trim().toLowerCase();
+
+  const STATUS_ORDER = { agendado: 0, ocorrido: 1, monitorando: 2, "sem-evento": 3 };
+
+  const filtered = rows.filter(r => {
+    if (sistema && r.s !== sistema) return false;
+    if (status && r.status !== status) return false;
+    if (busca && !r.t.toLowerCase().includes(busca)) return false;
+    return true;
+  }).sort((a, b) => {
+    const diff = STATUS_ORDER[a.status] - STATUS_ORDER[b.status];
+    if (diff !== 0) return diff;
+    return a.t.localeCompare(b.t);
+  });
+
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+  document.getElementById("empty-state").classList.toggle("hidden-row", filtered.length > 0);
+
+  filtered.forEach(r => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><strong>${r.t}</strong></td>
+      <td><span class="system-chip">${r.s}</span></td>
+      <td>${r.inst}</td>
+      <td><span class="badge ${r.status}"><span class="dot"></span>${STATUS_LABEL[r.status]}</span></td>
+      <td class="evento">${r.evento}</td>
+      <td class="data">${r.data}</td>
+      <td class="op-status-cell"><span class="badge ${r.opStatus}" style="background:transparent;padding:0;"><span class="dot" style="background:${opDotColor(r.opStatus)}"></span>${OP_LABEL[r.opStatus]}${r.opMs ? ` · ${r.opMs}ms` : ""}</span></td>
+      <td>${r.fonte ? `<a href="${r.fonte}" target="_blank" rel="noopener">ver fonte</a>` : "—"}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById("count-note").textContent = `${filtered.length} de ${rows.length} linhas (tribunal × sistema)`;
+  renderOpGrid(sistema, busca);
+}
+
+function opDotColor(status) {
+  return {
+    online: "var(--good)",
+    instavel: "var(--warning)",
+    "nao-verificavel": "var(--text-muted)",
+    indisponivel: "var(--critical)",
+    "sem-url": "var(--gridline)",
+    carregando: "var(--gridline)",
+  }[status] || "var(--text-muted)";
+}
+
+function renderOpGrid(sistema, busca) {
+  const filtered = rows.filter(r => {
+    if (sistema && r.s !== sistema) return false;
+    if (busca && !r.t.toLowerCase().includes(busca)) return false;
+    return true;
+  }).sort((a, b) => a.t.localeCompare(b.t) || a.s.localeCompare(b.s));
+
+  document.getElementById("op-grid").innerHTML = filtered.map(r => `
+    <div class="op-card ${r.opStatus}">
+      <div class="op-t">${r.t}</div>
+      <div class="op-s">${r.s}</div>
+      <div class="op-status-line"><span class="dot"></span>${OP_LABEL[r.opStatus]}</div>
+      ${r.opMs ? `<div class="op-ms">${r.opMs} ms</div>` : ""}
+    </div>
+  `).join("");
+
+  const counts = { online: 0, instavel: 0, "nao-verificavel": 0, indisponivel: 0, "sem-url": 0, carregando: 0 };
+  rows.forEach(r => counts[r.opStatus]++);
+  document.getElementById("op-summary").innerHTML = `
+    <span><span class="dot" style="background:var(--good)"></span>${counts.online} online</span>
+    <span><span class="dot" style="background:var(--warning)"></span>${counts.instavel} instável</span>
+    <span><span class="dot" style="background:var(--text-muted)"></span>${counts["nao-verificavel"]} não verificável</span>
+    <span><span class="dot" style="background:var(--critical)"></span>${counts.indisponivel} indisponível</span>
+    <span><span class="dot" style="background:var(--gridline)"></span>${counts["sem-url"]} sem URL confirmada</span>
+  `;
+  const checkedAt = rows.find(r => r.opCheckedAt)?.opCheckedAt || "—";
+  document.getElementById("op-checked-at").textContent = `Última checagem: ${checkedAt}`;
+}
+
+// Busca o resultado mais recente da checagem direta nos tribunais
+// (função serverless check-status.mjs, que roda de hora em hora no Netlify).
+async function loadLiveStatus() {
+  const banner = document.getElementById("live-banner");
+  try {
+    const res = await fetch("/.netlify/functions/get-status", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const byKey = new Map((data.statuses || []).map(s => [`${s.t}::${s.s}`, s]));
+
+    rows.forEach(r => {
+      if (r.url === null) { r.opStatus = "sem-url"; return; }
+      const live = byKey.get(`${r.t}::${r.s}`);
+      if (live) {
+        r.opStatus = live.opStatus;
+        r.opCode = live.opCode;
+        r.opMs = live.opMs;
+        r.opCheckedAt = live.opCheckedAt;
+      } else {
+        // Ainda não há checagem registrada pra esse alvo (ex.: primeiro deploy,
+        // antes de rodar a função agendada pela 1ª vez).
+        r.opStatus = "carregando";
+      }
+    });
+
+    if (Array.isArray(data.incidents)) {
+      incidents = data.incidents;
+    }
+
+    if (!data.checkedAt) {
+      banner.textContent = "Ainda não há nenhuma checagem registrada — a função automática roda de hora em hora; rode manualmente em Netlify > Functions > check-status > Run now pra popular agora.";
+      banner.classList.remove("error");
+    } else {
+      banner.remove();
+    }
+  } catch (err) {
+    console.error("Falha ao buscar status ao vivo:", err);
+    banner.textContent = "Não foi possível carregar a checagem em tempo real agora. Tentando de novo em instantes — os dados abaixo podem estar desatualizados.";
+    banner.classList.add("error");
+  }
+  render();
+  renderIncidents();
+}
+
+function renderStats() {
+  const counts = { agendado: 0, ocorrido: 0, monitorando: 0, "sem-evento": 0 };
+  rows.forEach(r => counts[r.status]++);
+  const tribunaisUnicos = uniqueSorted(rows.map(r => r.t)).length;
+  const tiles = [
+    { n: tribunaisUnicos, l: "Tribunais monitorados" },
+    { n: counts.agendado, l: "Atualizações agendadas" },
+    { n: counts.ocorrido + counts.monitorando, l: "Eventos/páginas identificadas" },
+    { n: counts["sem-evento"], l: "Sem evento identificado" },
+  ];
+  document.getElementById("stats").innerHTML = tiles.map(t => `
+    <div class="stat-tile"><div class="n">${t.n}</div><div class="l">${t.l}</div></div>
+  `).join("");
+}
+
+function renderIncidents() {
+  const tbody = document.getElementById("incidents-tbody");
+  const sorted = [...incidents].reverse(); // mais recente primeiro (array é preenchido em ordem cronológica)
+  document.getElementById("incidents-empty").classList.toggle("hidden-row", sorted.length > 0);
+  tbody.innerHTML = sorted.map(i => `
+    <tr>
+      <td class="data">${i.ts}</td>
+      <td><strong>${i.t}</strong></td>
+      <td><span class="system-chip">${i.s}</span></td>
+      <td class="evento">${i.event}</td>
+    </tr>
+  `).join("");
+}
+
+populateSelect("f-sistema", uniqueSorted(rows.map(r => r.s)), "Todos os sistemas");
+populateSelect("f-status", ["agendado","ocorrido","monitorando","sem-evento"], "Todas as situações");
+document.getElementById("f-sistema").addEventListener("change", render);
+document.getElementById("f-status").addEventListener("change", render);
+document.getElementById("f-busca").addEventListener("input", render);
+renderStats();
+render();
+renderIncidents();
+loadLiveStatus();
+// Atualiza sozinho a cada 5 minutos, caso a pessoa deixe a página aberta.
+setInterval(loadLiveStatus, 5 * 60 * 1000);
+</script>
+</body>
+</html>

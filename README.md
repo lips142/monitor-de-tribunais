@@ -1,5 +1,7 @@
 # Monitor de Tribunais — checagem automática direta no tribunal
 
+O site é publicado pelo **GitHub Pages** deste mesmo repositório (branch `main`, raiz) — não usa mais Netlify (a conta/team do Netlify usada antes tinha os créditos do plano gratuito esgotados e nenhum deploy chegava a publicar). O arquivo `.nojekyll` na raiz desativa o processamento Jekyll do GitHub Pages, pra servir os arquivos exatamente como estão.
+
 ## Como funciona agora
 
 A checagem roda no **GitHub Actions** (`.github/workflows/check-status.yml`), de hora em hora, gratuitamente e sem limite de frequência — diferente de Netlify/Vercel grátis, que ou cobram por checagem (créditos) ou limitam a 1x por dia no plano free.

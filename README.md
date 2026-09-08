@@ -7,13 +7,13 @@ A checagem roda no **GitHub Actions** (`.github/workflows/check-status.yml`), de
 O workflow:
 1. Lê a lista de tribunais/sistemas em `data/targets.json`.
 2. Faz uma requisição HTTP real e direta a cada um (`scripts/check-status.mjs`).
-3. Classifica em **Online**, **Instável** (lento ou erro pontual), **Indisponível** (erro 5xx confirmado em 2 checagens seguidas) ou **Não verificável** (bloqueio de bot/WAF — comum em `.jus.br`, não significa que caiu).
+3. Classifica em **Online**, **Instável** (lento, erro do servidor, ou parou de responder de repente num tribunal que já tinha respondido antes), **Indisponível** (o mesmo problema confirmado em 2 checagens seguidas ou mais) ou **Não verificável** (bloqueio de bot/WAF, ou falha de conexão num tribunal que nunca respondeu daqui — comum em `.jus.br`; nesse caso uma falha de rede sozinha não vira "queda" porque não dá pra saber se é o tribunal ou o bloqueio contra o próprio checador).
 4. Salva o resultado (`latest.json` e `incidents.json`) na branch **`data`** deste mesmo repositório — uma branch separada, só para os dados, que o Netlify não usa pra fazer deploy (por isso não gasta crédito de build).
 
 O `index.html` (publicado pelo Netlify, no link de sempre) busca esses dois arquivos direto do GitHub:
 ```
-https://raw.githubusercontent.com/lips142/monitor-de-tribunais/refs/heads/data/latest.json
-https://raw.githubusercontent.com/lips142/monitor-de-tribunais/refs/heads/data/incidents.json
+https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/latest.json
+https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/incidents.json
 ```
 O GitHub libera CORS pra repositórios públicos nesses arquivos "raw", então o navegador consegue buscar direto, sem precisar de nenhuma função no servidor do site.
 

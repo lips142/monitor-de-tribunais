@@ -203,7 +203,7 @@
         <h2>Status operacional agora (checagem automática direta no tribunal)</h2>
         <span class="meta" id="op-checked-at"></span>
       </div>
-      <p class="op-note">Checagem automática de verdade: uma função roda de hora em hora no servidor e faz uma requisição direta à página de acesso de cada sistema (não é consulta processual), sem depender de dado manual. "Online" = respondeu rápido; "Instável" = respondeu lento (acima de 6s) ou com um erro pontual do próprio servidor, ainda sem confirmar se é queda persistente; "Indisponível" = erro 5xx do próprio servidor por duas checagens seguidas ou mais; "Não verificável" NÃO significa que o tribunal está fora do ar — na maioria das vezes é bloqueio de bot/rede (WAF, CDN, geolocalização) contra a origem que faz a checagem, comum em sites .jus.br.</p>
+      <p class="op-note">Checagem automática de verdade: uma função roda de hora em hora no servidor e faz uma requisição direta à página de acesso de cada sistema (não é consulta processual), sem depender de dado manual. "Online" = respondeu rápido; "Instável" = respondeu lento (acima de 6s), com erro do próprio servidor, ou parou de responder de repente (falha de conexão) num tribunal que antes respondia normalmente — ainda sem confirmar se é queda persistente; "Indisponível" = o mesmo problema confirmado por duas checagens seguidas ou mais; "Não verificável" NÃO significa que o tribunal está fora do ar — é bloqueio de bot/rede (WAF, CDN, geolocalização) contra a origem que faz a checagem (comum em sites .jus.br) num tribunal que nunca respondeu daqui, então uma falha de conexão sozinha não é usada como prova de queda.</p>
       <div class="op-summary" id="op-summary"></div>
       <div class="op-grid" id="op-grid"></div>
     </div>

@@ -65,12 +65,31 @@ async function probe(target) {
 // Decide o status final considerando o resultado desta checagem + quantas vezes
 // SEGUIDAS o proprio servidor ja respondeu com erro (errStreak), pra distinguir
 // uma falha pontual (instavel) de uma queda persistente (indisponivel).
+//
+// "bloqueado" (400/401/403) prova que o servidor esta de pe e respondendo -
+// so esta barrando esse client especifico (WAF/anti-bot). Isso NUNCA e
+// evidencia de queda, entao fica sempre "nao-verificavel".
+//
+// "falha-rede" (timeout, conexao recusada, falha de DNS/TLS - nao chegou
+// resposta HTTP nenhuma) e ambiguo: tanto pode ser o tribunal fora do ar de
+// verdade quanto um bloqueio de rede/geolocalizacao permanente contra o IP
+// do GitHub Actions (que se comporta identico do nosso ponto de vista). A
+// unica forma de diferenciar com um so ponto de checagem e usar o historico:
+// se esse alvo JA foi confirmado alcancavel antes (opStatus anterior era
+// online/instavel/indisponivel), uma falha de rede agora e um sinal real de
+// problema e entra no mesmo fluxo de confirmacao do erro-servidor. Se ele
+// NUNCA foi confirmado alcancavel (sempre "nao-verificavel" desde o inicio),
+// tratamos como bloqueio estrutural e nao geramos falso positivo de queda.
 function classify(probeResult, previous) {
   const { raw, opMs } = probeResult;
   if (raw === "sem-url") return { opStatus: "sem-url", errStreak: 0 };
-  if (raw === "bloqueado" || raw === "falha-rede") return { opStatus: "nao-verificavel", errStreak: 0 };
+  if (raw === "bloqueado") return { opStatus: "nao-verificavel", errStreak: 0 };
   if (raw === "respondeu") return { opStatus: opMs > SLOW_MS ? "instavel" : "online", errStreak: 0 };
-  if (raw === "erro-servidor") {
+  if (raw === "erro-servidor" || raw === "falha-rede") {
+    const jaFoiAlcancavel = previous && ["online", "instavel", "indisponivel"].includes(previous.opStatus);
+    if (!jaFoiAlcancavel) {
+      return { opStatus: "nao-verificavel", errStreak: 0 };
+    }
     const errStreak = (previous?.errStreak || 0) + 1;
     return { opStatus: errStreak >= 2 ? "indisponivel" : "instavel", errStreak };
   }

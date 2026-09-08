@@ -12,8 +12,8 @@ O workflow:
 
 O `index.html` (publicado pelo Netlify, no link de sempre) busca esses dois arquivos direto do GitHub:
 ```
-https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/latest.json
-https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/incidents.json
+https://raw.githubusercontent.com/lips142/monitor-de-tribunais/refs/heads/data/latest.json
+https://raw.githubusercontent.com/lips142/monitor-de-tribunais/refs/heads/data/incidents.json
 ```
 O GitHub libera CORS pra repositórios públicos nesses arquivos "raw", então o navegador consegue buscar direto, sem precisar de nenhuma função no servidor do site.
 

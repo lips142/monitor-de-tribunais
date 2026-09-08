@@ -443,7 +443,7 @@ function renderOpGrid(sistema, busca) {
 // branch "data" do repositório. Aqui a página busca esses dois arquivos
 // direto do GitHub (raw.githubusercontent.com já libera CORS pra sites
 // públicos), sem depender de nenhuma função paga no host do site.
-const DATA_BASE_URL = "https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/";
+const DATA_BASE_URL = "https://raw.githubusercontent.com/lips142/monitor-de-tribunais/refs/heads/data/";
 
 async function loadLiveStatus() {
   const banner = document.getElementById("live-banner");

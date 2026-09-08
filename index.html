@@ -67,6 +67,20 @@
   }
   .filters input[type="search"] { min-width: 200px; }
   .count-note { font-size: 12.5px; color: var(--text-muted); margin-left: auto; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 18px; border-bottom: 1px solid var(--gridline); }
+  .tab-btn {
+    font-size: 13.5px; font-weight: 600; color: var(--text-secondary);
+    background: none; border: none; border-bottom: 2px solid transparent;
+    padding: 10px 4px; margin-bottom: -1px; cursor: pointer;
+  }
+  .tab-btn:hover { color: var(--text-primary); }
+  .tab-btn.active { color: var(--text-primary); border-bottom-color: var(--series-blue); }
+  .tab-btn .tab-count {
+    display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 700;
+    color: var(--text-muted); background: #f0efec; border-radius: 999px; padding: 1px 7px;
+  }
+  .tab-btn.active .tab-count { color: var(--series-blue); background: #eaf1fb; }
+  [hidden] { display: none !important; }
   table { width: 100%; border-collapse: collapse; background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
   thead th {
     text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em;
@@ -167,56 +181,65 @@
 
   <div class="live-banner" id="live-banner">Carregando checagem em tempo real dos tribunais…</div>
 
-  <div class="stats" id="stats"></div>
-
-  <div class="filters">
-    <label for="f-sistema">Sistema</label>
-    <select id="f-sistema"></select>
-    <label for="f-status">Situação</label>
-    <select id="f-status"></select>
-    <input type="search" id="f-busca" placeholder="Buscar tribunal (ex: TRT2, TJSP)">
-    <span class="count-note" id="count-note"></span>
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab-btn active" id="tab-btn-painel" role="tab" aria-selected="true" aria-controls="tab-painel">Painel</button>
+    <button type="button" class="tab-btn" id="tab-btn-incidentes" role="tab" aria-selected="false" aria-controls="tab-incidentes">Histórico de incidentes <span class="tab-count" id="incidents-count">0</span></button>
   </div>
 
-  <div class="op-section">
-    <div class="op-heading">
-      <h2>Status operacional agora (checagem automática direta no tribunal)</h2>
-      <span class="meta" id="op-checked-at"></span>
-    </div>
-    <p class="op-note">Checagem automática de verdade: uma função roda de hora em hora no servidor e faz uma requisição direta à página de acesso de cada sistema (não é consulta processual), sem depender de dado manual. "Online" = respondeu rápido; "Instável" = respondeu lento (acima de 6s) ou com um erro pontual do próprio servidor, ainda sem confirmar se é queda persistente; "Indisponível" = erro 5xx do próprio servidor por duas checagens seguidas ou mais; "Não verificável" NÃO significa que o tribunal está fora do ar — na maioria das vezes é bloqueio de bot/rede (WAF, CDN, geolocalização) contra a origem que faz a checagem, comum em sites .jus.br.</p>
-    <div class="op-summary" id="op-summary"></div>
-    <div class="op-grid" id="op-grid"></div>
-  </div>
+  <div id="tab-painel" role="tabpanel" aria-labelledby="tab-btn-painel">
+    <div class="stats" id="stats"></div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Tribunal</th>
-        <th>Sistema</th>
-        <th>Instância(s)</th>
-        <th>Situação</th>
-        <th>Evento</th>
-        <th>Data</th>
-        <th>Status agora</th>
-        <th>Fonte</th>
-      </tr>
-    </thead>
-    <tbody id="tbody"></tbody>
-  </table>
-  <div class="empty-state hidden-row" id="empty-state">Nenhum tribunal encontrado com esses filtros.</div>
-
-  <div class="op-section">
-    <div class="op-heading">
-      <h2>Histórico de incidentes</h2>
+    <div class="filters">
+      <label for="f-sistema">Sistema</label>
+      <select id="f-sistema"></select>
+      <label for="f-status">Situação</label>
+      <select id="f-status"></select>
+      <input type="search" id="f-busca" placeholder="Buscar tribunal (ex: TRT2, TJSP)">
+      <span class="count-note" id="count-note"></span>
     </div>
-    <p class="op-note">Registro acumulado de transições reais de status (Online ⇄ Instável ⇄ Indisponível) detectadas pela checagem automática direta no tribunal. Não inclui bloqueios de rede/WAF ("não verificável") — só entra aqui o que tem evidência de instabilidade ou indisponibilidade de verdade. A checagem roda de hora em hora, então uma mudança pode ter começado antes do horário registrado.</p>
-    <table id="incidents-table">
+
+    <div class="op-section">
+      <div class="op-heading">
+        <h2>Status operacional agora (checagem automática direta no tribunal)</h2>
+        <span class="meta" id="op-checked-at"></span>
+      </div>
+      <p class="op-note">Checagem automática de verdade: uma função roda de hora em hora no servidor e faz uma requisição direta à página de acesso de cada sistema (não é consulta processual), sem depender de dado manual. "Online" = respondeu rápido; "Instável" = respondeu lento (acima de 6s) ou com um erro pontual do próprio servidor, ainda sem confirmar se é queda persistente; "Indisponível" = erro 5xx do próprio servidor por duas checagens seguidas ou mais; "Não verificável" NÃO significa que o tribunal está fora do ar — na maioria das vezes é bloqueio de bot/rede (WAF, CDN, geolocalização) contra a origem que faz a checagem, comum em sites .jus.br.</p>
+      <div class="op-summary" id="op-summary"></div>
+      <div class="op-grid" id="op-grid"></div>
+    </div>
+
+    <table>
       <thead>
-        <tr><th>Quando</th><th>Tribunal</th><th>Sistema</th><th>Evento</th></tr>
+        <tr>
+          <th>Tribunal</th>
+          <th>Sistema</th>
+          <th>Instância(s)</th>
+          <th>Situação</th>
+          <th>Evento</th>
+          <th>Data</th>
+          <th>Status agora</th>
+          <th>Fonte</th>
+        </tr>
       </thead>
-      <tbody id="incidents-tbody"></tbody>
+      <tbody id="tbody"></tbody>
     </table>
-    <div class="empty-state hidden-row" id="incidents-empty">Nenhum incidente registrado ainda.</div>
+    <div class="empty-state hidden-row" id="empty-state">Nenhum tribunal encontrado com esses filtros.</div>
+  </div>
+
+  <div id="tab-incidentes" role="tabpanel" aria-labelledby="tab-btn-incidentes" hidden>
+    <div class="op-section">
+      <div class="op-heading">
+        <h2>Histórico de incidentes</h2>
+      </div>
+      <p class="op-note">Registro acumulado de transições reais de status (Online ⇄ Instável ⇄ Indisponível) detectadas pela checagem automática direta no tribunal. Não inclui bloqueios de rede/WAF ("não verificável") — só entra aqui o que tem evidência de instabilidade ou indisponibilidade de verdade. A checagem roda de hora em hora, então uma mudança pode ter começado antes do horário registrado.</p>
+      <table id="incidents-table">
+        <thead>
+          <tr><th>Quando</th><th>Tribunal</th><th>Sistema</th><th>Evento</th></tr>
+        </thead>
+        <tbody id="incidents-tbody"></tbody>
+      </table>
+      <div class="empty-state hidden-row" id="incidents-empty">Nenhum incidente registrado ainda.</div>
+    </div>
   </div>
 
   <footer>
@@ -520,7 +543,28 @@ function renderIncidents() {
       <td class="evento">${i.event}</td>
     </tr>
   `).join("");
+  document.getElementById("incidents-count").textContent = incidents.length;
 }
+
+// --- Navegação por abas (Painel / Histórico de incidentes) ---
+const TABS = [
+  { btn: "tab-btn-painel", panel: "tab-painel" },
+  { btn: "tab-btn-incidentes", panel: "tab-incidentes" },
+];
+
+function activateTab(panelId) {
+  TABS.forEach(({ btn, panel }) => {
+    const isActive = panel === panelId;
+    document.getElementById(panel).hidden = !isActive;
+    const btnEl = document.getElementById(btn);
+    btnEl.classList.toggle("active", isActive);
+    btnEl.setAttribute("aria-selected", String(isActive));
+  });
+}
+
+TABS.forEach(({ btn, panel }) => {
+  document.getElementById(btn).addEventListener("click", () => activateTab(panel));
+});
 
 populateSelect("f-sistema", uniqueSorted(rows.map(r => r.s)), "Todos os sistemas");
 populateSelect("f-status", ["agendado","ocorrido","monitorando","sem-evento"], "Todas as situações");

@@ -1,7 +1,3 @@
 [build]
   publish = "."
-  command = "echo 'site estático, sem build — apenas instala dependências das functions'"
-
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
+  command = "echo 'site estatico, sem build e sem functions'"

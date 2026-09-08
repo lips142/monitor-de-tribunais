@@ -1,38 +1,54 @@
 # Monitor de Tribunais — checagem automática direta no tribunal
 
-## O que mudou
+## Como funciona agora
 
-Antes, os dados de "status agora" (`opStatus`, `opCode`, `opMs`) ficavam **hardcoded** no `index.html`, congelados na hora em que alguém rodou os checks manualmente. Agora existe uma função que roda de hora em hora no próprio Netlify, faz uma requisição HTTP real e direta a cada tribunal, e guarda o resultado. O `index.html` busca esse resultado ao carregar a página — não tem mais dado velho.
+A checagem roda no **GitHub Actions** (`.github/workflows/check-status.yml`), de hora em hora, gratuitamente e sem limite de frequência — diferente de Netlify/Vercel grátis, que ou cobram por checagem (créditos) ou limitam a 1x por dia no plano free.
 
-Foi adicionado também um status **"Instável"**, entre "Online" e "Indisponível":
-- **Online**: respondeu rápido (até 6s).
-- **Instável**: respondeu lento (mais de 6s), ou deu erro 5xx uma única vez (pode ser um blip).
-- **Indisponível**: erro 5xx do próprio servidor por 2 checagens seguidas ou mais — aí sim é queda persistente.
-- **Não verificável**: bloqueio de bot/rede (403/401/400 ou falha de conexão) — comum em .jus.br, não significa que o tribunal está fora do ar.
+O workflow:
+1. Lê a lista de tribunais/sistemas em `data/targets.json`.
+2. Faz uma requisição HTTP real e direta a cada um (`scripts/check-status.mjs`).
+3. Classifica em **Online**, **Instável** (lento ou erro pontual), **Indisponível** (erro 5xx confirmado em 2 checagens seguidas) ou **Não verificável** (bloqueio de bot/WAF — comum em `.jus.br`, não significa que caiu).
+4. Salva o resultado (`latest.json` e `incidents.json`) na branch **`data`** deste mesmo repositório — uma branch separada, só para os dados, que o Netlify não usa pra fazer deploy (por isso não gasta crédito de build).
 
-As colunas de **anúncio de manutenção/atualização** (Situação, Evento, Data, Fonte) continuam sendo curadoria manual, como já eram — isso não dá pra automatizar sem um scraper por tribunal, que é um projeto à parte.
+O `index.html` (publicado pelo Netlify, no link de sempre) busca esses dois arquivos direto do GitHub:
+```
+https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/latest.json
+https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/incidents.json
+```
+O GitHub libera CORS pra repositórios públicos nesses arquivos "raw", então o navegador consegue buscar direto, sem precisar de nenhuma função no servidor do site.
 
-## Arquivos novos
+As colunas de **anúncio de manutenção/atualização** (Situação, Evento, Data, Fonte) continuam sendo curadoria manual, dentro do próprio `index.html` — isso não dá pra automatizar sem um scraper por tribunal, que é um projeto à parte.
 
-- `netlify/functions/check-status.mjs` — roda de hora em hora (`schedule: "@hourly"`), verifica cada tribunal direto e salva o resultado no Netlify Blobs.
-- `netlify/functions/get-status.mjs` — função que o `index.html` chama ao carregar a página, pra pegar o resultado mais recente.
-- `netlify.toml` — aponta a pasta das functions.
-- `package.json` — declara a dependência `@netlify/blobs` (guarda os dados; não precisa de banco de dados externo nem senha configurada, o Netlify cuida disso sozinho).
+## Por que não ficou no Netlify Functions / Vercel
 
-## Como subir
+- **Netlify grátis**: usa um sistema de créditos compartilhado (build + functions + bandwidth); rodar uma function de hora em hora + servir a página que a chama a cada visita consumiu o limite mensal rápido demais.
+- **Vercel grátis (Hobby)**: cron job só roda 1x por dia (não dá pra ser de hora em hora), e o plano é restrito a uso pessoal/não-comercial.
+- **GitHub Actions** (repositório público): minutos ilimitados de graça, sem essas restrições.
 
-1. Coloque todos os arquivos desta pasta no seu repositório (mantendo a estrutura de pastas, principalmente `netlify/functions/`).
-2. Faça commit e push. O Netlify detecta o `package.json` e roda `npm install` sozinho antes do deploy — não precisa fazer nada manual.
-3. Depois do primeiro deploy, a função `check-status` só roda na próxima marcação de hora cheia. Pra não ficar esperando, vá em **Netlify > seu site > Functions > check-status > Run now** (ou use a Netlify CLI: `netlify functions:invoke check-status`) pra popular os dados na hora.
-4. Abra o site — a checagem em tempo real deve aparecer. Se a função ainda não rodou nenhuma vez, aparece um aviso amarelo explicando isso, sem quebrar a página.
+## Primeira configuração (só uma vez)
+
+A branch `data` precisa existir antes do workflow rodar pela primeira vez. Se ela ainda não existe no repositório, crie uma branch órfã vazia:
+
+```bash
+git checkout --orphan data
+git rm -rf .
+echo '{"checkedAt": null, "statuses": []}' > latest.json
+echo '[]' > incidents.json
+git add latest.json incidents.json
+git commit -m "Inicializa branch de dados"
+git push origin data
+git checkout main
+```
+
+Depois disso, o workflow do GitHub Actions cuida do resto sozinho, de hora em hora. Pra rodar na hora (sem esperar a próxima marcação): aba **Actions** do repositório no GitHub → **Checagem de status dos tribunais** → **Run workflow**.
 
 ## Se quiser adicionar/remover um tribunal
 
-O `index.html` (variável `rows`) e a função `netlify/functions/check-status.mjs` (variável `TARGETS`) têm cada um sua própria lista de `{t, s, inst, url}`. Se adicionar uma linha em um, replique no outro — não tem um arquivo único compartilhado entre os dois de propósito, pra evitar depender de um recurso extra do Netlify (`included_files`) que é mais frágil de configurar.
+Edite `data/targets.json` (usado pelo workflow) **e** a variável `rows` em `index.html` (usada pra exibir as colunas de anúncio/manutenção) — são duas listas separadas de propósito, uma é dado gerado automaticamente e a outra é curadoria manual.
 
 ## Ajustar sensibilidade
 
-No topo de `check-status.mjs`:
+No topo de `scripts/check-status.mjs`:
 - `TIMEOUT_MS` (padrão 8000): quanto tempo esperar por uma resposta antes de desistir.
 - `SLOW_MS` (padrão 6000): acima disso, mesmo respondendo OK, marca como "Instável".
-- Trocar `schedule: "@hourly"` por outro valor (ex: `"*/30 * * * *"` pra rodar a cada 30 min) se quiser checar com mais frequência.
+- Trocar o cron `"0 * * * *"` em `.github/workflows/check-status.yml` por outro valor (ex: `"*/30 * * * *"` pra rodar a cada 30 min) se quiser checar com mais frequência — no GitHub Actions isso é de graça também.

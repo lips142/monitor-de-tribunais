@@ -437,14 +437,26 @@ function renderOpGrid(sistema, busca) {
   document.getElementById("op-checked-at").textContent = `Última checagem: ${checkedAt}`;
 }
 
-// Busca o resultado mais recente da checagem direta nos tribunais
-// (função serverless check-status.mjs, que roda de hora em hora no Netlify).
+// Busca o resultado mais recente da checagem direta nos tribunais.
+// Quem faz a checagem é um workflow do GitHub Actions (de hora em hora, de
+// graça — .github/workflows/check-status.yml), que salva o resultado na
+// branch "data" do repositório. Aqui a página busca esses dois arquivos
+// direto do GitHub (raw.githubusercontent.com já libera CORS pra sites
+// públicos), sem depender de nenhuma função paga no host do site.
+const DATA_BASE_URL = "https://raw.githubusercontent.com/lips142/monitor-de-tribunais/data/";
+
 async function loadLiveStatus() {
   const banner = document.getElementById("live-banner");
   try {
-    const res = await fetch("/.netlify/functions/get-status", { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    const cacheBuster = `?t=${Date.now()}`;
+    const [latestRes, incidentsRes] = await Promise.all([
+      fetch(DATA_BASE_URL + "latest.json" + cacheBuster, { cache: "no-store" }),
+      fetch(DATA_BASE_URL + "incidents.json" + cacheBuster, { cache: "no-store" }),
+    ]);
+    if (!latestRes.ok) throw new Error(`HTTP ${latestRes.status} (latest.json)`);
+    const data = await latestRes.json();
+    const liveIncidents = incidentsRes.ok ? await incidentsRes.json() : [];
+
     const byKey = new Map((data.statuses || []).map(s => [`${s.t}::${s.s}`, s]));
 
     rows.forEach(r => {
@@ -456,18 +468,18 @@ async function loadLiveStatus() {
         r.opMs = live.opMs;
         r.opCheckedAt = live.opCheckedAt;
       } else {
-        // Ainda não há checagem registrada pra esse alvo (ex.: primeiro deploy,
-        // antes de rodar a função agendada pela 1ª vez).
+        // Ainda não há checagem registrada pra esse alvo (ex.: antes da
+        // primeira rodada do workflow no GitHub Actions).
         r.opStatus = "carregando";
       }
     });
 
-    if (Array.isArray(data.incidents)) {
-      incidents = data.incidents;
+    if (Array.isArray(liveIncidents)) {
+      incidents = liveIncidents;
     }
 
     if (!data.checkedAt) {
-      banner.textContent = "Ainda não há nenhuma checagem registrada — a função automática roda de hora em hora; rode manualmente em Netlify > Functions > check-status > Run now pra popular agora.";
+      banner.textContent = "Ainda não há nenhuma checagem registrada — o workflow automático roda de hora em hora; rode manualmente na aba Actions do GitHub (\"Run workflow\") pra popular agora.";
       banner.classList.remove("error");
     } else {
       banner.remove();

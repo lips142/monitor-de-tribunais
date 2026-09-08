@@ -1,0 +1,44 @@
+name: Checagem de status dos tribunais
+
+"on":
+  schedule:
+    - cron: "0 * * * *" # de hora em hora (UTC)
+  workflow_dispatch: {} # permite rodar manualmente pelo botao "Run workflow"
+
+permissions:
+  contents: write
+
+jobs:
+  check-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do codigo (main)
+        uses: actions/checkout@v4
+
+      - name: Checkout da branch de dados
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: data-branch
+
+      - name: Rodar checagem direta nos tribunais
+        env:
+          TARGETS_FILE: data/targets.json
+          PREVIOUS_LATEST: data-branch/latest.json
+          PREVIOUS_INCIDENTS: data-branch/incidents.json
+          OUT_LATEST: data-branch/latest.json
+          OUT_INCIDENTS: data-branch/incidents.json
+        run: node scripts/check-status.mjs
+
+      - name: Commitar e publicar resultado
+        working-directory: data-branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add latest.json incidents.json
+          if git diff --cached --quiet; then
+            echo "Nada mudou desde a ultima checagem."
+          else
+            git commit -m "Checagem automatica $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git push origin data
+          fi

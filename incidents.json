@@ -286,5 +286,23 @@
     "t": "TJCE",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "09/09/2026, 13:01 (Brasília)",
+    "t": "JFPE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 13:01 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "09/09/2026, 13:01 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

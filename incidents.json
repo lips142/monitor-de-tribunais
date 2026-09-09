@@ -148,5 +148,77 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "JFAL",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "JFPB",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "JFPE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "JFRN",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "JFSE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "TJAC",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "TJTO",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "TRF6",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "09/09/2026, 03:48 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

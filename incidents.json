@@ -466,5 +466,41 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "10/09/2026, 11:40 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "10/09/2026, 11:40 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "10/09/2026, 11:40 (Brasília)",
+    "t": "TJBA",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "10/09/2026, 11:40 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "10/09/2026, 11:40 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "10/09/2026, 11:40 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

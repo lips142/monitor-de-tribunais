@@ -1060,5 +1060,29 @@
     "t": "TJPR",
     "s": "Projudi",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "11/09/2026, 17:20 (Brasília)",
+    "t": "JFPE",
+    "s": "PJe 1.x",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "11/09/2026, 17:20 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 17:20 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 17:20 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

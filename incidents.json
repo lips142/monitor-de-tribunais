@@ -1270,5 +1270,11 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 18:03 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
   }
 ]

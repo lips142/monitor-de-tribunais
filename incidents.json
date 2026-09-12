@@ -1132,5 +1132,35 @@
     "t": "TJSP",
     "s": "eSAJ",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 21:44 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 21:44 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 21:44 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 21:44 (Brasília)",
+    "t": "TRF6",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "11/09/2026, 21:44 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

@@ -1174,5 +1174,59 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TJTO",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TRF6",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Caiu (HTTP 503) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "12/09/2026, 06:40 (Brasília)",
+    "t": "TRT9",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

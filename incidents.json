@@ -1294,5 +1294,29 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 22:36 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 22:36 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 22:36 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "12/09/2026, 22:36 (Brasília)",
+    "t": "TRT9",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

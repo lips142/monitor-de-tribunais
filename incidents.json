@@ -1426,5 +1426,17 @@
     "t": "TRF2",
     "s": "eproc",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "13/09/2026, 16:01 (Brasília)",
+    "t": "JFSE",
+    "s": "PJe 1.x",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "13/09/2026, 16:01 (Brasília)",
+    "t": "TJBA",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
   }
 ]

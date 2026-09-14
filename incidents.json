@@ -1738,5 +1738,53 @@
     "t": "TRT9",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TRF6",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TRF6",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "14/09/2026, 19:48 (Brasília)",
+    "t": "TRT9",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

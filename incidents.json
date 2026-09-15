@@ -1828,5 +1828,11 @@
     "t": "TJGO",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "15/09/2026, 14:21 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

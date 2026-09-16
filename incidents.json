@@ -1942,5 +1942,17 @@
     "t": "TRT9",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 14:20 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 14:20 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

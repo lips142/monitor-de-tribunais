@@ -1996,5 +1996,47 @@
     "t": "TRT9",
     "s": "PJe",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TJTO",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TRF6",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TRF6",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "16/09/2026, 20:18 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

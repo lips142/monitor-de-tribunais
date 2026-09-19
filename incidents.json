@@ -2620,5 +2620,11 @@
     "t": "TJSP",
     "s": "eSAJ",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "19/09/2026, 16:39 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

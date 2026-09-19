@@ -2434,5 +2434,23 @@
     "t": "TJGO",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 08:40 (Brasília)",
+    "t": "JFSE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 08:40 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 08:40 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

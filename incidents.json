@@ -2452,5 +2452,77 @@
     "t": "TJSP",
     "s": "eSAJ",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "JFAL",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "JFPB",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "JFPE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "JFRN",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJAC",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJAL",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJBA",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 11:54 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

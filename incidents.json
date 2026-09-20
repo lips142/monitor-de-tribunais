@@ -2674,5 +2674,89 @@
     "t": "TRT3",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "JFAL",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "JFPB",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "JFPE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "JFRN",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "JFSE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TJAC",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TRT6",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TRT9",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "19/09/2026, 22:53 (Brasília)",
+    "t": "TRT15",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

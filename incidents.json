@@ -1,47 +1,5 @@
 [
   {
-    "ts": "08/09/2026, 22:45 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "09/09/2026, 03:48 (Brasília)",
-    "t": "JFAL",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "09/09/2026, 03:48 (Brasília)",
-    "t": "JFCE",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "09/09/2026, 03:48 (Brasília)",
-    "t": "JFPB",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "09/09/2026, 03:48 (Brasília)",
-    "t": "JFPE",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "09/09/2026, 03:48 (Brasília)",
-    "t": "JFRN",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "09/09/2026, 03:48 (Brasília)",
-    "t": "JFSE",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
     "ts": "09/09/2026, 03:48 (Brasília)",
     "t": "TJAC",
     "s": "eSAJ",
@@ -2997,6 +2955,48 @@
     "ts": "21/09/2026, 19:53 (Brasília)",
     "t": "TJTO",
     "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TRF6",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TRF6",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "21/09/2026, 22:18 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

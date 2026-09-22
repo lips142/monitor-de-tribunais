@@ -1,13 +1,13 @@
 {
-  "checkedAt": "22/09/2026, 09:10 (Brasília)",
+  "checkedAt": "22/09/2026, 14:23 (Brasília)",
   "statuses": [
     {
       "t": "JFAL",
       "s": "PJe 1.x",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 1438,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 1300,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -15,8 +15,8 @@
       "s": "PJe 1.x",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 1336,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 1243,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -24,8 +24,8 @@
       "s": "eproc",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 2046,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 1930,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -33,8 +33,8 @@
       "s": "PJe 1.x",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 2058,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 1927,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -42,8 +42,8 @@
       "s": "PJe 1.x",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 2451,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 2290,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -52,7 +52,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -60,8 +60,8 @@
       "s": "eproc",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 2561,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 2382,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -69,8 +69,8 @@
       "s": "PJe 1.x",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 2907,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 2776,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -79,7 +79,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -88,7 +88,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -96,8 +96,8 @@
       "s": "PJe 1.x",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 3518,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 3296,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -105,8 +105,8 @@
       "s": "eSAJ",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 5136,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 4703,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -114,35 +114,35 @@
       "s": "eSAJ",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 3483,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 3260,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
       "t": "TJAM",
       "s": "eSAJ",
-      "opStatus": "online",
-      "opCode": 200,
-      "opMs": 4256,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 0
+      "opStatus": "instavel",
+      "opCode": null,
+      "opMs": null,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 1
     },
     {
       "t": "TJAM",
       "s": "Projudi",
-      "opStatus": "online",
-      "opCode": 200,
-      "opMs": 5140,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 0
+      "opStatus": "instavel",
+      "opCode": null,
+      "opMs": null,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 1
     },
     {
       "t": "TJAP",
       "s": "PJe",
       "opStatus": "nao-verificavel",
       "opCode": 403,
-      "opMs": 4644,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 4560,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -151,7 +151,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -159,26 +159,26 @@
       "s": "Projudi",
       "opStatus": "online",
       "opCode": 200,
-      "opMs": 5581,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 5105,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
       "t": "TJCE",
       "s": "eSAJ",
-      "opStatus": "instavel",
+      "opStatus": "online",
       "opCode": 200,
-      "opMs": 6221,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 5634,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
       "t": "TJCE",
       "s": "PJe",
-      "opStatus": "instavel",
+      "opStatus": "online",
       "opCode": 200,
-      "opMs": 6365,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 5733,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -187,7 +187,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -195,17 +195,17 @@
       "s": "PJe",
       "opStatus": "nao-verificavel",
       "opCode": 403,
-      "opMs": 5688,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 5024,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
       "t": "TJGO",
       "s": "Projudi",
-      "opStatus": "instavel",
+      "opStatus": "online",
       "opCode": 200,
-      "opMs": 6507,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 5673,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -214,7 +214,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -223,7 +223,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -231,8 +231,8 @@
       "s": "eproc",
       "opStatus": "instavel",
       "opCode": 200,
-      "opMs": 6897,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 6137,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -241,7 +241,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -249,8 +249,8 @@
       "s": "PJe",
       "opStatus": "instavel",
       "opCode": 200,
-      "opMs": 7878,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 6799,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -259,7 +259,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -268,7 +268,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -277,7 +277,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -286,17 +286,17 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
       "t": "TJPR",
       "s": "Projudi",
-      "opStatus": "indisponivel",
-      "opCode": null,
-      "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 2
+      "opStatus": "instavel",
+      "opCode": 200,
+      "opMs": 7667,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 0
     },
     {
       "t": "TJRJ",
@@ -304,7 +304,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -313,7 +313,7 @@
       "opStatus": "sem-url",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -321,8 +321,8 @@
       "s": "PJe",
       "opStatus": "nao-verificavel",
       "opCode": 403,
-      "opMs": 7823,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opMs": 6733,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -331,7 +331,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -340,7 +340,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -349,17 +349,17 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
       "t": "TJSP",
       "s": "eSAJ",
-      "opStatus": "indisponivel",
-      "opCode": null,
-      "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 4
+      "opStatus": "instavel",
+      "opCode": 200,
+      "opMs": 7874,
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 0
     },
     {
       "t": "TJSP",
@@ -367,7 +367,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -376,8 +376,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 5
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 6
     },
     {
       "t": "TRF1",
@@ -385,7 +385,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -394,8 +394,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 4
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 5
     },
     {
       "t": "TRF3",
@@ -403,7 +403,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -412,7 +412,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -421,7 +421,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -430,8 +430,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 4
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 5
     },
     {
       "t": "TRF6",
@@ -439,8 +439,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 4
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 5
     },
     {
       "t": "TRF6",
@@ -448,8 +448,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 4
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 5
     },
     {
       "t": "TRT1",
@@ -457,7 +457,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -466,7 +466,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -475,8 +475,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 4
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 5
     },
     {
       "t": "TRT4",
@@ -484,7 +484,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -493,7 +493,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -502,8 +502,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 9
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 10
     },
     {
       "t": "TRT7",
@@ -511,7 +511,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -520,7 +520,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -529,8 +529,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 9
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 10
     },
     {
       "t": "TRT10",
@@ -538,7 +538,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -547,8 +547,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 77
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 78
     },
     {
       "t": "TRT12",
@@ -556,7 +556,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -565,7 +565,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -574,7 +574,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -583,8 +583,8 @@
       "opStatus": "indisponivel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
-      "errStreak": 14
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
+      "errStreak": 15
     },
     {
       "t": "TRT16",
@@ -592,7 +592,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -601,7 +601,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -610,7 +610,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -619,7 +619,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -628,7 +628,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -637,7 +637,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -646,7 +646,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -655,7 +655,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -664,7 +664,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     },
     {
@@ -673,7 +673,7 @@
       "opStatus": "nao-verificavel",
       "opCode": null,
       "opMs": null,
-      "opCheckedAt": "22/09/2026, 09:10 (Brasília)",
+      "opCheckedAt": "22/09/2026, 14:23 (Brasília)",
       "errStreak": 0
     }
   ]

@@ -1,59 +1,5 @@
 [
   {
-    "ts": "09/09/2026, 19:02 (Brasília)",
-    "t": "TRF2",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "09/09/2026, 19:02 (Brasília)",
-    "t": "TRF6",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "09/09/2026, 19:02 (Brasília)",
-    "t": "TRT3",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "09/09/2026, 21:41 (Brasília)",
-    "t": "TJGO",
-    "s": "Projudi",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "09/09/2026, 21:41 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "10/09/2026, 02:23 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "10/09/2026, 02:23 (Brasília)",
-    "t": "TJTO",
-    "s": "eproc",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
-    "ts": "10/09/2026, 02:23 (Brasília)",
-    "t": "TRF2",
-    "s": "eproc",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
-    "ts": "10/09/2026, 02:23 (Brasília)",
-    "t": "TRF5",
-    "s": "PJe1.x",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
     "ts": "10/09/2026, 02:23 (Brasília)",
     "t": "TRF6",
     "s": "PJe",
@@ -2998,5 +2944,59 @@
     "t": "TJCE",
     "s": "PJe",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TJMT",
+    "s": "PJe",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TRF6",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "23/09/2026, 15:00 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "ts": "10/09/2026, 19:49 (Brasília)",
-    "t": "TRT15",
-    "s": "PJe",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
     "ts": "10/09/2026, 21:38 (Brasília)",
     "t": "JFAL",
     "s": "PJe 1.x",
@@ -2998,5 +2992,11 @@
     "t": "TRT9",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "25/09/2026, 19:52 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "ts": "11/09/2026, 02:21 (Brasília)",
-    "t": "TRT3",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
     "ts": "11/09/2026, 07:05 (Brasília)",
     "t": "TJMG",
     "s": "eproc",
@@ -2998,5 +2992,11 @@
     "t": "TRT11",
     "s": "PJe",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "26/09/2026, 11:47 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "ts": "12/09/2026, 02:12 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
     "ts": "12/09/2026, 06:40 (Brasília)",
     "t": "JFCE",
     "s": "PJe 1.x",
@@ -2998,5 +2992,11 @@
     "t": "JFES",
     "s": "eproc",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/09/2026, 11:51 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

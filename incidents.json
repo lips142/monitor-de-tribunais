@@ -1,30 +1,6 @@
 [
   {
     "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "JFSE",
-    "s": "PJe 1.x",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TJAC",
-    "s": "eSAJ",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TJAL",
-    "s": "eSAJ",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TJAM",
-    "s": "eSAJ",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
     "t": "TJAM",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
@@ -2996,6 +2972,30 @@
   {
     "ts": "30/09/2026, 20:15 (Brasília)",
     "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "30/09/2026, 23:40 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "30/09/2026, 23:40 (Brasília)",
+    "t": "TJAM",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "30/09/2026, 23:40 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "30/09/2026, 23:40 (Brasília)",
+    "t": "TJGO",
     "s": "Projudi",
     "event": "Ficou instável (HTTP 200)"
   }

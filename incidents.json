@@ -1,36 +1,6 @@
 [
   {
     "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TJGO",
-    "s": "Projudi",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TJSP",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TRF2",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
-    "t": "TRF5",
-    "s": "PJe1.x",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "14/09/2026, 11:29 (Brasília)",
     "t": "TRF6",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
@@ -2998,5 +2968,35 @@
     "t": "TJGO",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "01/10/2026, 13:43 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "01/10/2026, 13:43 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "01/10/2026, 13:43 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "01/10/2026, 13:43 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "01/10/2026, 13:43 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

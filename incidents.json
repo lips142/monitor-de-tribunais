@@ -2,12 +2,6 @@
   {
     "ts": "14/09/2026, 19:48 (Brasília)",
     "t": "TRF6",
-    "s": "PJe",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
-    "ts": "14/09/2026, 19:48 (Brasília)",
-    "t": "TRF6",
     "s": "eproc",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   },
@@ -2996,6 +2990,12 @@
   {
     "ts": "01/10/2026, 22:08 (Brasília)",
     "t": "TRF6",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "02/10/2026, 04:37 (Brasília)",
+    "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
   }

@@ -1,12 +1,6 @@
 [
   {
     "ts": "16/09/2026, 17:30 (Brasília)",
-    "t": "TRF2",
-    "s": "eproc",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
-    "ts": "16/09/2026, 17:30 (Brasília)",
     "t": "TRF5",
     "s": "PJe1.x",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
@@ -2998,5 +2992,11 @@
     "t": "TRF2",
     "s": "eproc",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "04/10/2026, 00:01 (Brasília)",
+    "t": "JFPE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
   }
 ]

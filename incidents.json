@@ -1,12 +1,6 @@
 [
   {
     "ts": "19/09/2026, 22:53 (Brasília)",
-    "t": "JFPB",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "19/09/2026, 22:53 (Brasília)",
     "t": "JFPE",
     "s": "PJe 1.x",
     "event": "Ficou instável (HTTP sem resposta)"
@@ -2998,5 +2992,11 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "07/10/2026, 21:30 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

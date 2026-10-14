@@ -1,12 +1,6 @@
 [
   {
     "ts": "24/09/2026, 02:34 (Brasília)",
-    "t": "TJPR",
-    "s": "Projudi",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
-    "ts": "24/09/2026, 02:34 (Brasília)",
     "t": "TJSP",
     "s": "eSAJ",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
@@ -2998,5 +2992,11 @@
     "t": "TRT9",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "14/10/2026, 12:34 (Brasília)",
+    "t": "JFCE",
+    "s": "PJe 1.x",
+    "event": "Ficou instável (HTTP sem resposta)"
   }
 ]

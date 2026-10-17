@@ -1,12 +1,6 @@
 [
   {
     "ts": "26/09/2026, 02:52 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "26/09/2026, 02:52 (Brasília)",
     "t": "TJPR",
     "s": "Projudi",
     "event": "Ficou instável (HTTP sem resposta)"
@@ -2997,6 +2991,12 @@
     "ts": "17/10/2026, 02:07 (Brasília)",
     "t": "TJMG",
     "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "17/10/2026, 06:47 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
     "event": "Ficou instável (HTTP 200)"
   }
 ]

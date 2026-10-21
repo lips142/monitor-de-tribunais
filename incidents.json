@@ -1,47 +1,5 @@
 [
   {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TJSP",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TJTO",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TRF2",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TRF5",
-    "s": "PJe1.x",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TRF6",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TRT3",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "29/09/2026, 03:19 (Brasília)",
-    "t": "TRT9",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
     "ts": "29/09/2026, 10:28 (Brasília)",
     "t": "JFRN",
     "s": "PJe 1.x",
@@ -2998,5 +2956,47 @@
     "t": "TJGO",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "JFRS",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "TRF5",
+    "s": "PJe1.x",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "20/10/2026, 21:20 (Brasília)",
+    "t": "TRT3",
+    "s": "PJe",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

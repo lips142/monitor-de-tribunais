@@ -1,18 +1,6 @@
 [
   {
     "ts": "03/10/2026, 10:59 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "03/10/2026, 10:59 (Brasília)",
-    "t": "TJSP",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "03/10/2026, 10:59 (Brasília)",
     "t": "TRF2",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
@@ -2998,5 +2986,17 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "23/10/2026, 23:09 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "23/10/2026, 23:09 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

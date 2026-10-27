@@ -1,53 +1,5 @@
 [
   {
-    "ts": "06/10/2026, 18:20 (Brasília)",
-    "t": "TJSP",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 18:20 (Brasília)",
-    "t": "TJTO",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 18:20 (Brasília)",
-    "t": "TRF2",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 18:20 (Brasília)",
-    "t": "TRF5",
-    "s": "PJe1.x",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 18:20 (Brasília)",
-    "t": "TRT3",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 18:20 (Brasília)",
-    "t": "TRT9",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 22:04 (Brasília)",
-    "t": "TJCE",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "06/10/2026, 22:04 (Brasília)",
-    "t": "TJCE",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
     "ts": "06/10/2026, 22:04 (Brasília)",
     "t": "TJGO",
     "s": "Projudi",
@@ -2998,5 +2950,53 @@
     "t": "TJAM",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "JFPR",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "JFRS",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "JFSC",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "27/10/2026, 15:25 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

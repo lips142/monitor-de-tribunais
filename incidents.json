@@ -1,30 +1,6 @@
 [
   {
     "ts": "08/10/2026, 11:07 (Brasília)",
-    "t": "TJBA",
-    "s": "Projudi",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "08/10/2026, 11:07 (Brasília)",
-    "t": "TJCE",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "08/10/2026, 11:07 (Brasília)",
-    "t": "TJCE",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "08/10/2026, 11:07 (Brasília)",
-    "t": "TJGO",
-    "s": "Projudi",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "08/10/2026, 11:07 (Brasília)",
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP sem resposta)"
@@ -2998,5 +2974,29 @@
     "t": "TRT3",
     "s": "PJe",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "28/10/2026, 16:56 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "28/10/2026, 16:56 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "28/10/2026, 16:56 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "28/10/2026, 16:56 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
   }
 ]

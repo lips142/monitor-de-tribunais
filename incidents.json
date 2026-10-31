@@ -1,12 +1,6 @@
 [
   {
     "ts": "11/10/2026, 06:22 (Brasília)",
-    "t": "TJBA",
-    "s": "Projudi",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "11/10/2026, 06:22 (Brasília)",
     "t": "TJCE",
     "s": "eSAJ",
     "event": "Voltou ao normal (HTTP 200)"
@@ -2997,6 +2991,12 @@
     "ts": "31/10/2026, 04:37 (Brasília)",
     "t": "TJGO",
     "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "31/10/2026, 10:56 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
     "event": "Ficou instável (HTTP 200)"
   }
 ]

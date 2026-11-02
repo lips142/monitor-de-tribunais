@@ -2,12 +2,6 @@
   {
     "ts": "11/10/2026, 16:55 (Brasília)",
     "t": "TJCE",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "11/10/2026, 16:55 (Brasília)",
-    "t": "TJCE",
     "s": "PJe",
     "event": "Ficou instável (HTTP 200)"
   },
@@ -2998,5 +2992,11 @@
     "t": "TJPR",
     "s": "Projudi",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "01/11/2026, 22:56 (Brasília)",
+    "t": "TJAC",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

@@ -1,47 +1,5 @@
 [
   {
-    "ts": "13/10/2026, 18:36 (Brasília)",
-    "t": "TJCE",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "13/10/2026, 21:41 (Brasília)",
-    "t": "TJAM",
-    "s": "Projudi",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "14/10/2026, 02:33 (Brasília)",
-    "t": "JFPB",
-    "s": "PJe 1.x",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "14/10/2026, 02:33 (Brasília)",
-    "t": "TJAM",
-    "s": "Projudi",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/10/2026, 02:33 (Brasília)",
-    "t": "TJBA",
-    "s": "Projudi",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/10/2026, 07:43 (Brasília)",
-    "t": "JFPB",
-    "s": "PJe 1.x",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "14/10/2026, 07:43 (Brasília)",
-    "t": "TJCE",
-    "s": "eSAJ",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
     "ts": "14/10/2026, 07:43 (Brasília)",
     "t": "TJCE",
     "s": "PJe",
@@ -2998,5 +2956,47 @@
     "t": "TRT3",
     "s": "PJe",
     "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJBA",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "03/11/2026, 23:47 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

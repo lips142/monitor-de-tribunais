@@ -2,12 +2,6 @@
   {
     "ts": "18/10/2026, 20:53 (Brasília)",
     "t": "TJCE",
-    "s": "eSAJ",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "18/10/2026, 20:53 (Brasília)",
-    "t": "TJCE",
     "s": "PJe",
     "event": "Voltou ao normal (HTTP 200)"
   },
@@ -2998,5 +2992,11 @@
     "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 04:19 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]

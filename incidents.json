@@ -1,53 +1,5 @@
 [
   {
-    "ts": "18/10/2026, 20:53 (Brasília)",
-    "t": "TRF5",
-    "s": "PJe1.x",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "18/10/2026, 20:53 (Brasília)",
-    "t": "TRF6",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "18/10/2026, 20:53 (Brasília)",
-    "t": "TRT3",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "19/10/2026, 05:08 (Brasília)",
-    "t": "TJTO",
-    "s": "eproc",
-    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
-  },
-  {
-    "ts": "19/10/2026, 12:55 (Brasília)",
-    "t": "TJCE",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "19/10/2026, 12:55 (Brasília)",
-    "t": "TJCE",
-    "s": "PJe",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "19/10/2026, 12:55 (Brasília)",
-    "t": "TJGO",
-    "s": "Projudi",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "19/10/2026, 12:55 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
     "ts": "19/10/2026, 17:46 (Brasília)",
     "t": "TJCE",
     "s": "eSAJ",
@@ -2998,5 +2950,53 @@
     "t": "TJGO",
     "s": "Projudi",
     "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJAC",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJBA",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJCE",
+    "s": "eSAJ",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJCE",
+    "s": "PJe",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJGO",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJMG",
+    "s": "eproc",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TJSP",
+    "s": "eSAJ",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "09/11/2026, 21:54 (Brasília)",
+    "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

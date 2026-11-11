@@ -1,18 +1,6 @@
 [
   {
     "ts": "20/10/2026, 15:13 (Brasília)",
-    "t": "TJCE",
-    "s": "PJe",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "20/10/2026, 15:13 (Brasília)",
-    "t": "TJMG",
-    "s": "eproc",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
-    "ts": "20/10/2026, 15:13 (Brasília)",
     "t": "TRF5",
     "s": "PJe1.x",
     "event": "Ficou instável (HTTP 200)"
@@ -2998,5 +2986,17 @@
     "t": "TJGO",
     "s": "Projudi",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "11/11/2026, 05:30 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "11/11/2026, 05:30 (Brasília)",
+    "t": "TJPR",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP 200)"
   }
 ]

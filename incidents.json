@@ -1,17 +1,5 @@
 [
   {
-    "ts": "20/10/2026, 18:57 (Brasília)",
-    "t": "JFRS",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP sem resposta)"
-  },
-  {
-    "ts": "20/10/2026, 18:57 (Brasília)",
-    "t": "TJGO",
-    "s": "Projudi",
-    "event": "Voltou ao normal (HTTP 200)"
-  },
-  {
     "ts": "20/10/2026, 21:20 (Brasília)",
     "t": "JFRS",
     "s": "eproc",
@@ -2996,6 +2984,18 @@
   {
     "ts": "11/11/2026, 13:41 (Brasília)",
     "t": "TRF2",
+    "s": "eproc",
+    "event": "Ficou instável (HTTP 200)"
+  },
+  {
+    "ts": "11/11/2026, 20:09 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "11/11/2026, 20:09 (Brasília)",
+    "t": "TJMG",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
   }

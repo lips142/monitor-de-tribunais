@@ -1,12 +1,6 @@
 [
   {
     "ts": "22/10/2026, 09:34 (Brasília)",
-    "t": "TJSP",
-    "s": "eSAJ",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "22/10/2026, 09:34 (Brasília)",
     "t": "TJTO",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
@@ -2998,5 +2992,11 @@
     "t": "TJAL",
     "s": "eSAJ",
     "event": "Voltou ao normal (HTTP 200)"
+  },
+  {
+    "ts": "14/11/2026, 14:22 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Ficou instável (HTTP sem resposta)"
   }
 ]

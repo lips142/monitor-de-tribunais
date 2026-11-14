@@ -1,12 +1,6 @@
 [
   {
     "ts": "22/10/2026, 09:34 (Brasília)",
-    "t": "TJTO",
-    "s": "eproc",
-    "event": "Ficou instável (HTTP 200)"
-  },
-  {
-    "ts": "22/10/2026, 09:34 (Brasília)",
     "t": "TRF2",
     "s": "eproc",
     "event": "Ficou instável (HTTP 200)"
@@ -2998,5 +2992,11 @@
     "t": "TJAM",
     "s": "Projudi",
     "event": "Ficou instável (HTTP sem resposta)"
+  },
+  {
+    "ts": "14/11/2026, 18:43 (Brasília)",
+    "t": "TJAM",
+    "s": "Projudi",
+    "event": "Caiu (HTTP ?) — checagem direta ao tribunal"
   }
 ]
